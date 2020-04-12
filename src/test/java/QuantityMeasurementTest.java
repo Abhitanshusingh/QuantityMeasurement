@@ -188,7 +188,7 @@ public class QuantityMeasurementTest {
         Quantity firstValue = new Quantity(1.0, Unit.GALLON);
         Quantity secondValue = new Quantity(3.78, Unit.LITRES);
         result = quantityMeasurementService.compareValue(firstValue, secondValue);
-        Assert.assertEquals(true,result);
+        Assert.assertEquals(true, result);
     }
 
     @Test
@@ -196,7 +196,7 @@ public class QuantityMeasurementTest {
         Quantity firstValue = new Quantity(1.0, Unit.LITRES);
         Quantity secondValue = new Quantity(1000.0, Unit.MILLILITRES);
         result = quantityMeasurementService.compareValue(firstValue, secondValue);
-        Assert.assertEquals(true,result);
+        Assert.assertEquals(true, result);
     }
 
     @Test
@@ -213,5 +213,29 @@ public class QuantityMeasurementTest {
         Quantity secondValue = new Quantity(1000.0, Unit.MILLILITRES);
         result1 = quantityMeasurementService.addTwoValues(firstValue, secondValue);
         Assert.assertEquals(2.0, result1, 0.0);
+    }
+
+    @Test
+    public void givenInKilogramAndGram_WhenEqual_ShouldReturnTrue() {
+        Quantity firstValue = new Quantity(1.0, Unit.KILOGRAMS);
+        Quantity secondValue = new Quantity(1000.0, Unit.GRAMS);
+        result = quantityMeasurementService.compareValue(firstValue, secondValue);
+        Assert.assertEquals(true, result);
+    }
+
+    @Test
+    public void givenInToneAndKilogram_WhenEqual_ShouldReturnTrue() {
+        Quantity firstValue = new Quantity(1.0, Unit.TONNE);
+        Quantity secondValue = new Quantity(1000.0, Unit.KILOGRAMS);
+        result = quantityMeasurementService.compareValue(firstValue, secondValue);
+        Assert.assertEquals(true, result);
+    }
+
+    @Test
+    public void givenInToneAndKilogram_WhenAdd_ShouldReturnInKilogram() {
+        Quantity firstValue = new Quantity(1.0, Unit.TONNE);
+        Quantity secondValue = new Quantity(1000.0, Unit.GRAMS);
+        result1 = quantityMeasurementService.addTwoValues(firstValue, secondValue);
+        Assert.assertEquals(1001.0, result1, 0.0);
     }
 }
