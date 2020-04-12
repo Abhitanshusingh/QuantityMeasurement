@@ -70,4 +70,12 @@ public class QuantityMeasurementTest {
         result = quantityMeasurementService.compareValue(firstValue, secondValue);
         Assert.assertEquals(true, result);
     }
+
+    @Test
+    public void givenInch_WhenNull_ShouldReturnFalse() {
+        Length firstValue = new Length(0.1, Unit.INCH);
+        Length secondValue = null;
+        result = quantityMeasurementService.compareValue(firstValue, secondValue);
+        Assert.assertEquals(false, result);
+    }
 }
