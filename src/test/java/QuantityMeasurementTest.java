@@ -85,4 +85,12 @@ public class QuantityMeasurementTest {
         result = quantityMeasurementService.compareValue(firstValue, firstValue);
         Assert.assertEquals(true, result);
     }
+
+    @Test
+    public void givenInch_WhenTypeIsSame_ShouldReturntrue() {
+        Length firstValue = new Length(0.1, Unit.INCH);
+        Length secondValue = new Length(0.1, Unit.INCH);
+        result = quantityMeasurementService.compareValue(firstValue, secondValue);
+        Assert.assertEquals(true, result);
+    }
 }
