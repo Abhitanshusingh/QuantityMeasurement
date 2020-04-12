@@ -1,10 +1,10 @@
 package com.bridgelabz.adaptor;
 
-import com.bridgelabz.utility.Length;
+import com.bridgelabz.utility.Quantity;
 
 public interface IQuantityMeasurement {
 
-    public boolean compareValue(Length value1, Length value2);
+    public boolean compareValue(Quantity value1, Quantity value2);
 
-    public Double addTwoValue(Length value1, Length value2);
+    public Double addTwoValue(Quantity value1, Quantity value2);
 }
