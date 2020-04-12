@@ -52,4 +52,12 @@ public class QuantityMeasurementTest {
         result = quantityMeasurementService.compareValue(firstValue, secondValue);
         Assert.assertEquals(true, result);
     }
+
+    @Test
+    public void givenFeet_WhenValueIsSame_ShouldReturntrue() {
+        Length firstValue = new Length(10.0, Unit.FEET);
+        Length secondValue = new Length(10.0, Unit.FEET);
+        result = quantityMeasurementService.compareValue(firstValue, secondValue);
+        Assert.assertEquals(true, result);
+    }
 }
