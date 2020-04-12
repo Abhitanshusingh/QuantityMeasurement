@@ -14,6 +14,7 @@ public class QuantityMeasurementTest {
         quantityMeasurementService = new QuantityMeasurementService();
     }
 
+    //TEST CASE FOR FEET
     @Test
     public void givenZeroFeet_WhenEqualsZero_ShouldReturnTrue() {
         Length firstValue = new Length(0.0, Unit.FEET);
@@ -57,6 +58,54 @@ public class QuantityMeasurementTest {
     public void givenFeet_WhenValueIsSame_ShouldReturntrue() {
         Length firstValue = new Length(10.0, Unit.FEET);
         Length secondValue = new Length(10.0, Unit.FEET);
+        result = quantityMeasurementService.compareValue(firstValue, secondValue);
+        Assert.assertEquals(true, result);
+    }
+
+    //TEST CASE FOR INCH
+    @Test
+    public void givenZeroInch_WhenEqualsZero_ShouldReturnTrue() {
+        Length firstValue = new Length(0.0, Unit.INCH);
+        Length secondValue = new Length(0.0, Unit.INCH);
+        result = quantityMeasurementService.compareValue(firstValue, secondValue);
+        Assert.assertEquals(true, result);
+    }
+
+    @Test
+    public void givenNonZeroInch_WhenNotEqualsZero_ShouldReturnFalse() {
+        Length firstValue = new Length(0.5, Unit.INCH);
+        Length secondValue = new Length(0.1, Unit.INCH);
+        result = quantityMeasurementService.compareValue(firstValue, secondValue);
+        Assert.assertEquals(false, result);
+    }
+
+    @Test
+    public void givenInch_WhenNull_ShouldReturnFalse() {
+        Length firstValue = new Length(0.1, Unit.INCH);
+        Length secondValue = null;
+        result = quantityMeasurementService.compareValue(firstValue, secondValue);
+        Assert.assertEquals(false, result);
+    }
+
+    @Test
+    public void givenInch_WhenSameReference_ShouldReturntrue() {
+        Length firstValue = new Length(0.1, Unit.INCH);
+        result = quantityMeasurementService.compareValue(firstValue, firstValue);
+        Assert.assertEquals(true, result);
+    }
+
+    @Test
+    public void givenInch_WhenTypeIsSame_ShouldReturntrue() {
+        Length firstValue = new Length(0.1, Unit.INCH);
+        Length secondValue = new Length(0.1, Unit.INCH);
+        result = quantityMeasurementService.compareValue(firstValue, secondValue);
+        Assert.assertEquals(true, result);
+    }
+
+    @Test
+    public void givenInch_WhenValueIsSame_ShouldReturntrue() {
+        Length firstValue = new Length(10.0, Unit.INCH);
+        Length secondValue = new Length(10.0, Unit.INCH);
         result = quantityMeasurementService.compareValue(firstValue, secondValue);
         Assert.assertEquals(true, result);
     }
