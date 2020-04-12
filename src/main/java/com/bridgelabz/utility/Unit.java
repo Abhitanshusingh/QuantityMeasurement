@@ -1,8 +1,8 @@
 package com.bridgelabz.utility;
 
 public enum Unit {
-    FEET(12.0),INCH(1.0),YARD(36.0),CENTIMETER(0.4),
-    GALLON(3780), LITRES(1000), MILLILITERS(1);
+    FEET(12.0),INCH(1.0),YARD(36.0),CENTIMETRE(0.4),
+    GALLON(3.78), LITRES(1), MILLILITRES(0.001);
 
     public Double value;
 
