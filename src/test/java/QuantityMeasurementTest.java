@@ -37,4 +37,11 @@ public class QuantityMeasurementTest {
         result = quantityMeasurementService.compareValue(firstValue, secondValue);
         Assert.assertEquals(false, result);
     }
+
+    @Test
+    public void givenFeet_WhenSameReference_ShouldReturntrue() {
+        Length firstValue = new Length(0.1, Unit.FEET);
+        result = quantityMeasurementService.compareValue(firstValue, firstValue);
+        Assert.assertEquals(true, result);
+    }
 }
