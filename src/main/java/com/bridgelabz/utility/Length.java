@@ -3,9 +3,9 @@ package com.bridgelabz.utility;
 import java.util.Objects;
 
 public class Length {
-    Double length;
+    public Double length;
 
-    public  Length(Double distance, Unit unit) {
+    public Length(Double distance, Unit unit) {
         this.length = unit.convertToBaseValue(distance);
     }
 
