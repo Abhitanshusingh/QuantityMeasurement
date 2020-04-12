@@ -1,4 +1,4 @@
-import com.bridgelabz.utility.Length;
+import com.bridgelabz.utility.Quantity;
 import com.bridgelabz.utility.Unit;
 import com.bridgelabz.service.QuantityMeasurementService;
 import org.junit.Assert;
@@ -18,47 +18,47 @@ public class QuantityMeasurementTest {
     //TEST CASE FOR FEET
     @Test
     public void givenZeroFeet_WhenEqualsZero_ShouldReturnTrue() {
-        Length firstValue = new Length(0.0, Unit.FEET);
-        Length secondValue = new Length(0.0, Unit.FEET);
+        Quantity firstValue = new Quantity(0.0, Unit.FEET);
+        Quantity secondValue = new Quantity(0.0, Unit.FEET);
         result = quantityMeasurementService.compareValue(firstValue, secondValue);
         Assert.assertEquals(true, result);
     }
 
     @Test
     public void givenNonZeroFeet_WhenNotEqualsZero_ShouldReturnFalse() {
-        Length firstValue = new Length(0.5, Unit.FEET);
-        Length secondValue = new Length(0.1, Unit.FEET);
+        Quantity firstValue = new Quantity(0.5, Unit.FEET);
+        Quantity secondValue = new Quantity(0.1, Unit.FEET);
         result = quantityMeasurementService.compareValue(firstValue, secondValue);
         Assert.assertEquals(false, result);
     }
 
     @Test
     public void givenInFeet_WhenNull_ShouldReturnFalse() {
-        Length firstValue = new Length(0.1, Unit.FEET);
-        Length secondValue = null;
+        Quantity firstValue = new Quantity(0.1, Unit.FEET);
+        Quantity secondValue = null;
         result = quantityMeasurementService.compareValue(firstValue, secondValue);
         Assert.assertEquals(false, result);
     }
 
     @Test
     public void givenInFeet_WhenSameReference_ShouldReturnTrue() {
-        Length firstValue = new Length(0.1, Unit.FEET);
+        Quantity firstValue = new Quantity(0.1, Unit.FEET);
         result = quantityMeasurementService.compareValue(firstValue, firstValue);
         Assert.assertEquals(true, result);
     }
 
     @Test
     public void givenInFeet_WhenTypeIsSame_ShouldReturnTrue() {
-        Length firstValue = new Length(0.1, Unit.FEET);
-        Length secondValue = new Length(0.1, Unit.FEET);
+        Quantity firstValue = new Quantity(0.1, Unit.FEET);
+        Quantity secondValue = new Quantity(0.1, Unit.FEET);
         result = quantityMeasurementService.compareValue(firstValue, secondValue);
         Assert.assertEquals(true, result);
     }
 
     @Test
     public void givenFeet_WhenValueIsSame_ShouldReturnTrue() {
-        Length firstValue = new Length(10.0, Unit.FEET);
-        Length secondValue = new Length(10.0, Unit.FEET);
+        Quantity firstValue = new Quantity(10.0, Unit.FEET);
+        Quantity secondValue = new Quantity(10.0, Unit.FEET);
         result = quantityMeasurementService.compareValue(firstValue, secondValue);
         Assert.assertEquals(true, result);
     }
@@ -66,136 +66,152 @@ public class QuantityMeasurementTest {
     //TEST CASE FOR INCH
     @Test
     public void givenZeroInch_WhenEqualsZero_ShouldReturnTrue() {
-        Length firstValue = new Length(0.0, Unit.INCH);
-        Length secondValue = new Length(0.0, Unit.INCH);
+        Quantity firstValue = new Quantity(0.0, Unit.INCH);
+        Quantity secondValue = new Quantity(0.0, Unit.INCH);
         result = quantityMeasurementService.compareValue(firstValue, secondValue);
         Assert.assertEquals(true, result);
     }
 
     @Test
     public void givenInch_WhenNull_ShouldReturnFalse() {
-        Length firstValue = new Length(0.1, Unit.INCH);
-        Length secondValue = null;
+        Quantity firstValue = new Quantity(0.1, Unit.INCH);
+        Quantity secondValue = null;
         result = quantityMeasurementService.compareValue(firstValue, secondValue);
         Assert.assertEquals(false, result);
     }
 
     @Test
     public void givenInch_WhenSameReference_ShouldReturnTrue() {
-        Length firstValue = new Length(0.1, Unit.INCH);
+        Quantity firstValue = new Quantity(0.1, Unit.INCH);
         result = quantityMeasurementService.compareValue(firstValue, firstValue);
         Assert.assertEquals(true, result);
     }
 
     @Test
     public void givenInInch_WhenTypeIsSame_ShouldReturnTrue() {
-        Length firstValue = new Length(0.1, Unit.INCH);
-        Length secondValue = new Length(0.1, Unit.INCH);
+        Quantity firstValue = new Quantity(0.1, Unit.INCH);
+        Quantity secondValue = new Quantity(0.1, Unit.INCH);
         result = quantityMeasurementService.compareValue(firstValue, secondValue);
         Assert.assertEquals(true, result);
     }
 
     @Test
     public void givenInInch_WhenValueIsSame_ShouldReturnTrue() {
-        Length firstValue = new Length(10.0, Unit.INCH);
-        Length secondValue = new Length(10.0, Unit.INCH);
+        Quantity firstValue = new Quantity(10.0, Unit.INCH);
+        Quantity secondValue = new Quantity(10.0, Unit.INCH);
         result = quantityMeasurementService.compareValue(firstValue, secondValue);
         Assert.assertEquals(true, result);
     }
 
     @Test
     public void givenInLength_WhenFeetIsEqualToYard_ShouldReturnTrue() {
-        Length secondValue = new Length(3.0, Unit.FEET);
-        Length firstValue = new Length(1.0, Unit.YARD);
+        Quantity secondValue = new Quantity(3.0, Unit.FEET);
+        Quantity firstValue = new Quantity(1.0, Unit.YARD);
         result = quantityMeasurementService.compareValue(firstValue, secondValue);
         Assert.assertEquals(true, result);
     }
 
     @Test
     public void givenInLength_WhenFeetIsNotEqualToYard_ShouldReturnFalse() {
-        Length secondValue = new Length(1.0, Unit.FEET);
-        Length firstValue = new Length(1.0, Unit.YARD);
+        Quantity secondValue = new Quantity(1.0, Unit.FEET);
+        Quantity firstValue = new Quantity(1.0, Unit.YARD);
         result = quantityMeasurementService.compareValue(firstValue, secondValue);
         Assert.assertEquals(false, result);
     }
 
     @Test
     public void givenInLength_WhenInchIsNotEqualToYard_ShouldReturnFalse() {
-        Length secondValue = new Length(1.0, Unit.INCH);
-        Length firstValue = new Length(1.0, Unit.YARD);
+        Quantity secondValue = new Quantity(1.0, Unit.INCH);
+        Quantity firstValue = new Quantity(1.0, Unit.YARD);
         result = quantityMeasurementService.compareValue(firstValue, secondValue);
         Assert.assertEquals(false, result);
     }
 
     @Test
     public void givenInLength_WhenInchIsEqualToYard_ShouldReturnTrue() {
-        Length secondValue = new Length(36.0, Unit.INCH);
-        Length firstValue = new Length(1.0, Unit.YARD);
+        Quantity secondValue = new Quantity(36.0, Unit.INCH);
+        Quantity firstValue = new Quantity(1.0, Unit.YARD);
         result = quantityMeasurementService.compareValue(firstValue, secondValue);
         Assert.assertEquals(true, result);
     }
 
     @Test
     public void givenInLength_WhenYardIsEqualToFeet_ShouldReturnTrue() {
-        Length firstValue = new Length(1.0, Unit.YARD);
-        Length secondValue = new Length(3.0, Unit.FEET);
+        Quantity firstValue = new Quantity(1.0, Unit.YARD);
+        Quantity secondValue = new Quantity(3.0, Unit.FEET);
         result = quantityMeasurementService.compareValue(firstValue, secondValue);
         Assert.assertEquals(true, result);
     }
 
     @Test
     public void givenInLength_WhenInchEqualToCentimeter_ShouldReturnTrue() {
-        Length firstValue = new Length(2.0, Unit.INCH);
-        Length secondValue = new Length(5.0, Unit.CENTIMETER);
+        Quantity firstValue = new Quantity(2.0, Unit.INCH);
+        Quantity secondValue = new Quantity(5.0, Unit.CENTIMETRE);
         result = quantityMeasurementService.compareValue(firstValue, secondValue);
         Assert.assertEquals(true, result);
     }
 
     @Test
     public void givenInLength_WhenAddedTwoLengthInIch_ShouldReturntInInch() {
-        Length firstValue = new Length(2.0, Unit.INCH);
-        Length secondValue = new Length(2.0, Unit.INCH);
+        Quantity firstValue = new Quantity(2.0, Unit.INCH);
+        Quantity secondValue = new Quantity(2.0, Unit.INCH);
         result1 = quantityMeasurementService.addTwoValues(firstValue, secondValue);
         Assert.assertEquals(4.0, result1, 0.0);
     }
 
     @Test
     public void givenInLength_WhenAddedFeetAndInch_ShouldReturntInInch() {
-        Length firstValue = new Length(1.0, Unit.FEET);
-        Length secondValue = new Length(2.0, Unit.INCH);
+        Quantity firstValue = new Quantity(1.0, Unit.FEET);
+        Quantity secondValue = new Quantity(2.0, Unit.INCH);
         result1 = quantityMeasurementService.addTwoValues(firstValue, secondValue);
         Assert.assertEquals(14.0, result1, 0.0);
     }
 
     @Test
     public void givenInLength_WhenAddedFeetAndFeet_ShouldReturntInInch() {
-        Length firstValue = new Length(1.0, Unit.FEET);
-        Length secondValue = new Length(1.0, Unit.FEET);
+        Quantity firstValue = new Quantity(1.0, Unit.FEET);
+        Quantity secondValue = new Quantity(1.0, Unit.FEET);
         result1 = quantityMeasurementService.addTwoValues(firstValue, secondValue);
         Assert.assertEquals(24.0, result1, 0.0);
     }
 
     @Test
     public void givenInLength_WhenAddedInchAndCentimeter_ShouldReturntInInch() {
-        Length firstValue = new Length(2.0, Unit.INCH);
-        Length secondValue = new Length(2.5, Unit.CENTIMETER);
+        Quantity firstValue = new Quantity(2.0, Unit.INCH);
+        Quantity secondValue = new Quantity(2.5, Unit.CENTIMETRE);
         result1 = quantityMeasurementService.addTwoValues(firstValue, secondValue);
         Assert.assertEquals(3.0, result1, 0.0);
     }
 
     @Test
     public void givenInLitres_WhenGallonIsEqualToLitres_ShouldReturnTrue() {
-        Length firstValue = new Length(1.0, Unit.GALLON);
-        Length secondValue = new Length(3.78, Unit.LITRES);
+        Quantity firstValue = new Quantity(1.0, Unit.GALLON);
+        Quantity secondValue = new Quantity(3.78, Unit.LITRES);
         result = quantityMeasurementService.compareValue(firstValue, secondValue);
         Assert.assertEquals(true,result);
     }
 
     @Test
-    public void givenInLitres_WhenLitreIsEqualToMillilitre_ShouldReturnTrue() {
-        Length firstValue = new Length(1.0, Unit.LITRES);
-        Length secondValue = new Length(1000.0, Unit.MILLILITERS);
+    public void givenInLitres_WhenLitreIsEqualToMillilitres_ShouldReturnTrue() {
+        Quantity firstValue = new Quantity(1.0, Unit.LITRES);
+        Quantity secondValue = new Quantity(1000.0, Unit.MILLILITRES);
         result = quantityMeasurementService.compareValue(firstValue, secondValue);
         Assert.assertEquals(true,result);
+    }
+
+    @Test
+    public void givenInGallonAndLitre_WhenAdded_ShouldReturntInLitres() {
+        Quantity firstValue = new Quantity(1.0, Unit.GALLON);
+        Quantity secondValue = new Quantity(3.78, Unit.LITRES);
+        result1 = quantityMeasurementService.addTwoValues(firstValue, secondValue);
+        Assert.assertEquals(7.56, result1, 0.0);
+    }
+
+    @Test
+    public void givenInLitreAndMillilitres_WhenAdded_ShouldReturntInLitres() {
+        Quantity firstValue = new Quantity(1.0, Unit.LITRES);
+        Quantity secondValue = new Quantity(1000.0, Unit.MILLILITRES);
+        result1 = quantityMeasurementService.addTwoValues(firstValue, secondValue);
+        Assert.assertEquals(2.0, result1, 0.0);
     }
 }
