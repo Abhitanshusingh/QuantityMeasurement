@@ -29,4 +29,12 @@ public class QuantityMeasurementTest {
         result = quantityMeasurementService.compareValue(firstValue, secondValue);
         Assert.assertEquals(false, result);
     }
+
+    @Test
+    public void givenFeet_WhenNull_ShouldReturnFalse() {
+        Length firstValue = new Length(0.1, Unit.FEET);
+        Length secondValue = null;
+        result = quantityMeasurementService.compareValue(firstValue, secondValue);
+        Assert.assertEquals(false, result);
+    }
 }
