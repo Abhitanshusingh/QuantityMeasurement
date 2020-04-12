@@ -8,6 +8,7 @@ import org.junit.Test;
 public class QuantityMeasurementTest {
     QuantityMeasurementService quantityMeasurementService;
     boolean result;
+    double result1;
 
     @Before
     public void setUp() {
@@ -148,5 +149,37 @@ public class QuantityMeasurementTest {
         Length secondValue = new Length(5.0, Unit.CENTIMETER);
         result = quantityMeasurementService.compareValue(firstValue, secondValue);
         Assert.assertEquals(true, result);
+    }
+
+    @Test
+    public void givenLength_WhenAddedTwoLengthInIch_ShouldReturntInInch() {
+        Length firstValue = new Length(2.0, Unit.INCH);
+        Length secondValue = new Length(2.0, Unit.INCH);
+        result1 = quantityMeasurementService.addTwoValues(firstValue, secondValue);
+        Assert.assertEquals(4.0, result1, 0.0);
+    }
+
+    @Test
+    public void givenLength_WhenAddedFeetAndInch_ShouldReturntInInch() {
+        Length firstValue = new Length(1.0, Unit.FEET);
+        Length secondValue = new Length(2.0, Unit.INCH);
+        result1 = quantityMeasurementService.addTwoValues(firstValue, secondValue);
+        Assert.assertEquals(14.0, result1, 0.0);
+    }
+
+    @Test
+    public void givenLength_WhenAddedFeetAndFeet_ShouldReturntInInch() {
+        Length firstValue = new Length(1.0, Unit.FEET);
+        Length secondValue = new Length(1.0, Unit.FEET);
+        result1 = quantityMeasurementService.addTwoValues(firstValue, secondValue);
+        Assert.assertEquals(24.0, result1, 0.0);
+    }
+
+    @Test
+    public void givenLength_WhenAddedInchAndCentimeter_ShouldReturntInInch() {
+        Length firstValue = new Length(2.0, Unit.INCH);
+        Length secondValue = new Length(2.5, Unit.CENTIMETER);
+        result1 = quantityMeasurementService.addTwoValues(firstValue, secondValue);
+        Assert.assertEquals(3.0, result1, 0.0);
     }
 }
