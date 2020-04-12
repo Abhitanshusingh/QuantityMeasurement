@@ -141,4 +141,12 @@ public class QuantityMeasurementTest {
         result = quantityMeasurementService.compareValue(firstValue, secondValue);
         Assert.assertEquals(true, result);
     }
+
+    @Test
+    public void givenLength_WhenInchEqualToCentimeter_ShouldReturntrue() {
+        Length firstValue = new Length(2.0, Unit.INCH);
+        Length secondValue = new Length(5.0, Unit.CENTIMETER);
+        result = quantityMeasurementService.compareValue(firstValue, secondValue);
+        Assert.assertEquals(true, result);
+    }
 }
