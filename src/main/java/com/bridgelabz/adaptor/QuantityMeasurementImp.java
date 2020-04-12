@@ -10,4 +10,9 @@ public class QuantityMeasurementImp implements IQuantityMeasurement {
             return true;
         return false;
     }
+
+    @Override
+    public Double addTwoValue(Length value1, Length value2) {
+        return value1.length + value2.length;
+    }
 }

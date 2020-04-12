@@ -8,7 +8,13 @@ public class QuantityMeasurementService {
 
     public boolean compareValue(Length value1, Length value2) {
         IQuantityMeasurement object = QuantityMeasurementFactory.getObject();
-        boolean value = object.compareValue(value1, value2);
-        return value;
+        boolean result = object.compareValue(value1, value2);
+        return result;
+    }
+
+    public Double addTwoValues(Length value1 , Length value2) {
+        IQuantityMeasurement object = QuantityMeasurementFactory.getObject();
+        Double result = object.addTwoValue(value1, value2);
+        return result;
     }
 }
