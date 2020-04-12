@@ -117,4 +117,12 @@ public class QuantityMeasurementTest {
         result = quantityMeasurementService.compareValue(firstValue, secondValue);
         Assert.assertEquals(false, result);
     }
+
+    @Test
+    public void givenLength_WhenInchIsNotEqualToYard_ShouldReturnfalse() {
+        Length secondValue = new Length(1.0, Unit.INCH);
+        Length firstValue = new Length(1.0, Unit.YARD);
+        result = quantityMeasurementService.compareValue(firstValue, secondValue);
+        Assert.assertEquals(false, result);
+    }
 }
