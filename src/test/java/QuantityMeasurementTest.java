@@ -238,4 +238,12 @@ public class QuantityMeasurementTest {
         result1 = quantityMeasurementService.addTwoValues(firstValue, secondValue);
         Assert.assertEquals(1001.0, result1, 0.0);
     }
+
+    @Test
+    public void givenTemperatureInFahrenheitAndCelsius_WhenEqual_ShouldReturnTrue() {
+        Quantity firstValue = new Quantity(212.0, Unit.FAHRENHEIT);
+        Quantity secondValue = new Quantity(100.0, Unit.CELSIUS);
+        result = quantityMeasurementService.compareValue(firstValue, secondValue);
+        Assert.assertEquals(true, result);
+    }
 }
