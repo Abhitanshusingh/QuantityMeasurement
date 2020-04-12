@@ -33,7 +33,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenFeet_WhenNull_ShouldReturnFalse() {
+    public void givenInFeet_WhenNull_ShouldReturnFalse() {
         Length firstValue = new Length(0.1, Unit.FEET);
         Length secondValue = null;
         result = quantityMeasurementService.compareValue(firstValue, secondValue);
@@ -41,14 +41,14 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenFeet_WhenSameReference_ShouldReturntrue() {
+    public void givenInFeet_WhenSameReference_ShouldReturnTrue() {
         Length firstValue = new Length(0.1, Unit.FEET);
         result = quantityMeasurementService.compareValue(firstValue, firstValue);
         Assert.assertEquals(true, result);
     }
 
     @Test
-    public void givenFeet_WhenTypeIsSame_ShouldReturntrue() {
+    public void givenInFeet_WhenTypeIsSame_ShouldReturnTrue() {
         Length firstValue = new Length(0.1, Unit.FEET);
         Length secondValue = new Length(0.1, Unit.FEET);
         result = quantityMeasurementService.compareValue(firstValue, secondValue);
@@ -56,7 +56,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenFeet_WhenValueIsSame_ShouldReturntrue() {
+    public void givenFeet_WhenValueIsSame_ShouldReturnTrue() {
         Length firstValue = new Length(10.0, Unit.FEET);
         Length secondValue = new Length(10.0, Unit.FEET);
         result = quantityMeasurementService.compareValue(firstValue, secondValue);
@@ -81,14 +81,14 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenInch_WhenSameReference_ShouldReturntrue() {
+    public void givenInch_WhenSameReference_ShouldReturnTrue() {
         Length firstValue = new Length(0.1, Unit.INCH);
         result = quantityMeasurementService.compareValue(firstValue, firstValue);
         Assert.assertEquals(true, result);
     }
 
     @Test
-    public void givenInch_WhenTypeIsSame_ShouldReturntrue() {
+    public void givenInInch_WhenTypeIsSame_ShouldReturnTrue() {
         Length firstValue = new Length(0.1, Unit.INCH);
         Length secondValue = new Length(0.1, Unit.INCH);
         result = quantityMeasurementService.compareValue(firstValue, secondValue);
@@ -96,7 +96,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenInch_WhenValueIsSame_ShouldReturntrue() {
+    public void givenInInch_WhenValueIsSame_ShouldReturnTrue() {
         Length firstValue = new Length(10.0, Unit.INCH);
         Length secondValue = new Length(10.0, Unit.INCH);
         result = quantityMeasurementService.compareValue(firstValue, secondValue);
@@ -104,7 +104,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenLength_WhenFeetIsEqualToYard_ShouldReturntrue() {
+    public void givenInLength_WhenFeetIsEqualToYard_ShouldReturnTrue() {
         Length secondValue = new Length(3.0, Unit.FEET);
         Length firstValue = new Length(1.0, Unit.YARD);
         result = quantityMeasurementService.compareValue(firstValue, secondValue);
@@ -112,7 +112,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenLength_WhenFeetIsNotEqualToYard_ShouldReturnfalse() {
+    public void givenInLength_WhenFeetIsNotEqualToYard_ShouldReturnFalse() {
         Length secondValue = new Length(1.0, Unit.FEET);
         Length firstValue = new Length(1.0, Unit.YARD);
         result = quantityMeasurementService.compareValue(firstValue, secondValue);
@@ -120,7 +120,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenLength_WhenInchIsNotEqualToYard_ShouldReturnfalse() {
+    public void givenInLength_WhenInchIsNotEqualToYard_ShouldReturnFalse() {
         Length secondValue = new Length(1.0, Unit.INCH);
         Length firstValue = new Length(1.0, Unit.YARD);
         result = quantityMeasurementService.compareValue(firstValue, secondValue);
@@ -128,7 +128,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenLength_WhenInchIsEqualToYard_ShouldReturntrue() {
+    public void givenInLength_WhenInchIsEqualToYard_ShouldReturnTrue() {
         Length secondValue = new Length(36.0, Unit.INCH);
         Length firstValue = new Length(1.0, Unit.YARD);
         result = quantityMeasurementService.compareValue(firstValue, secondValue);
@@ -136,7 +136,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenLength_WhenYardIsEqualToFeet_ShouldReturntrue() {
+    public void givenInLength_WhenYardIsEqualToFeet_ShouldReturnTrue() {
         Length firstValue = new Length(1.0, Unit.YARD);
         Length secondValue = new Length(3.0, Unit.FEET);
         result = quantityMeasurementService.compareValue(firstValue, secondValue);
@@ -144,7 +144,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenLength_WhenInchEqualToCentimeter_ShouldReturntrue() {
+    public void givenInLength_WhenInchEqualToCentimeter_ShouldReturnTrue() {
         Length firstValue = new Length(2.0, Unit.INCH);
         Length secondValue = new Length(5.0, Unit.CENTIMETER);
         result = quantityMeasurementService.compareValue(firstValue, secondValue);
@@ -152,7 +152,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenLength_WhenAddedTwoLengthInIch_ShouldReturntInInch() {
+    public void givenInLength_WhenAddedTwoLengthInIch_ShouldReturntInInch() {
         Length firstValue = new Length(2.0, Unit.INCH);
         Length secondValue = new Length(2.0, Unit.INCH);
         result1 = quantityMeasurementService.addTwoValues(firstValue, secondValue);
@@ -160,7 +160,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenLength_WhenAddedFeetAndInch_ShouldReturntInInch() {
+    public void givenInLength_WhenAddedFeetAndInch_ShouldReturntInInch() {
         Length firstValue = new Length(1.0, Unit.FEET);
         Length secondValue = new Length(2.0, Unit.INCH);
         result1 = quantityMeasurementService.addTwoValues(firstValue, secondValue);
@@ -168,7 +168,7 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenLength_WhenAddedFeetAndFeet_ShouldReturntInInch() {
+    public void givenInLength_WhenAddedFeetAndFeet_ShouldReturntInInch() {
         Length firstValue = new Length(1.0, Unit.FEET);
         Length secondValue = new Length(1.0, Unit.FEET);
         result1 = quantityMeasurementService.addTwoValues(firstValue, secondValue);
@@ -176,10 +176,26 @@ public class QuantityMeasurementTest {
     }
 
     @Test
-    public void givenLength_WhenAddedInchAndCentimeter_ShouldReturntInInch() {
+    public void givenInLength_WhenAddedInchAndCentimeter_ShouldReturntInInch() {
         Length firstValue = new Length(2.0, Unit.INCH);
         Length secondValue = new Length(2.5, Unit.CENTIMETER);
         result1 = quantityMeasurementService.addTwoValues(firstValue, secondValue);
         Assert.assertEquals(3.0, result1, 0.0);
+    }
+
+    @Test
+    public void givenInLitres_WhenGallonIsEqualToLitres_ShouldReturnTrue() {
+        Length firstValue = new Length(1.0, Unit.GALLON);
+        Length secondValue = new Length(3.78, Unit.LITRES);
+        result = quantityMeasurementService.compareValue(firstValue, secondValue);
+        Assert.assertEquals(true,result);
+    }
+
+    @Test
+    public void givenInLitres_WhenLitreIsEqualToMillilitre_ShouldReturnTrue() {
+        Length firstValue = new Length(1.0, Unit.LITRES);
+        Length secondValue = new Length(1000.0, Unit.MILLILITERS);
+        result = quantityMeasurementService.compareValue(firstValue, secondValue);
+        Assert.assertEquals(true,result);
     }
 }
