@@ -133,4 +133,12 @@ public class QuantityMeasurementTest {
         result = quantityMeasurementService.compareValue(firstValue, secondValue);
         Assert.assertEquals(true, result);
     }
+
+    @Test
+    public void givenLength_WhenYardIsEqualToFeet_ShouldReturntrue() {
+        Length firstValue = new Length(1.0, Unit.YARD);
+        Length secondValue = new Length(3.0, Unit.FEET);
+        result = quantityMeasurementService.compareValue(firstValue, secondValue);
+        Assert.assertEquals(true, result);
+    }
 }
