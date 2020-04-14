@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="QuantityMeasurementTest" tests="1" skipped="1" failures="0" errors="0" timestamp="2020-04-14T07:40:57" hostname="abhitanshu-HP-250-G1-Notebook-PC" time="358.596">
+  <properties/>
+  <testcase name="givenTwoSameTemperatureUnit_WhenAdd_ShouldThrowException1" classname="QuantityMeasurementTest" time="358.596">
+    <skipped/>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
