@@ -4,9 +4,11 @@ import java.util.Objects;
 
 public class Quantity {
     public Double quantity;
+    public MeasurementType QuantityType;
 
-    public Quantity(Double distance, Unit unit) {
-        this.quantity = unit.convertToBaseValue(distance);
+    public Quantity(Double quantity, Unit unit) {
+        this.quantity = unit.convertToBaseValue(quantity, unit);
+        this.QuantityType = unit.QuantityType;
     }
 
     @Override
